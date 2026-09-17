@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Privacidad Digital</title>
+    <style>
+        :root {
+            --bg-color: #0a0e14;
+            --card-bg: #131d27;
+            --accent-color: #00ff66;
+            --text-color: #e6edf3;
+            --subtext-color: #8b949e;
+            --border-color: #1f2d3d;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .hash-box {
+            background-color: #000;
+            color: var(--accent-color);
+            padding: 1rem;
+            border-radius: 4px;
+            word-break: break-all;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: 1px dashed var(--accent-color);
+        }
+
+        pre {
+            background-color: #05080c;
+            color: #58a6ff;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .score-bar {
+            background-color: #21262d;
+            border-radius: 10px;
+            height: 20px;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .score-fill {
+            background-color: var(--accent-color);
+            height: 100%;
+            width: 70%;
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>[ LABORATORIO DE PRIVACIDAD DIGITAL ]</h1>
+        <p style="color: var(--subtext-color);">DAW + DAM + ASIR · Análisis de rastro digital y fingerprinting</p>
+
+        <div class="card">
+            <h2>1. Fingerprint Hash (SHA-256)</h2>
+            <p>Identificador único derivado de la combinación de características de tu navegador:</p>
+            <div id="hash-display" class="hash-box">Calculando SHA-256...</div>
+        </div>
+
+        <div class="card">
+            <h2>2. Índice de Exposición Estimado</h2>
+            <div class="score-bar">
+                <div id="score-fill" class="score-fill"></div>
+            </div>
+            <p id="score-text">Exposición detectada: 7/10 puntos</p>
+        </div>
+
+        <div class="card">
+            <h2>3. Datos Expuestos por el Navegador (JavaScript)</h2>
+            <pre id="data-display">Cargando objeto navigator...</pre>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
